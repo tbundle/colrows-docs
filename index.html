@@ -79,12 +79,16 @@
       <ul class="nav flex-column ">
         <li class="nav-item"><a class="nav-link active" href="#idocs_start">Getting Started</a>
           <ul class="nav flex-column">
-            <li class="nav-item"><a class="nav-link" href="#idocs_installation">Installation</a></li>
+            <li class="nav-item"><a class="nav-link" href="#installation">Installation</a></li>
+            <li class="nav-item"><a class="nav-link" href="#docker_installation">Docker Installation</a></li>
+            <li class="nav-item"><a class="nav-link" href="#aws_installation">AWS Cloud Installation</a></li>
+            <li class="nav-item"><a class="nav-link" href="#azure_installation">Microsoft Azure Installation</a></li>
+            <li class="nav-item"><a class="nav-link" href="#google_installation">Google Cloud Installation</a></li>
           </ul>
         </li>
         <li class="nav-item"><a class="nav-link" href="#configuration">Configuration</a>
           <ul class="nav flex-column">
-			<li class="nav-item"><a class="nav-link" href="#ssl">SSL Support</a></li>
+			<li class="nav-item"><a class="nav-link" href="#ssl">HTTP/HTTPS Configuration</a></li>
 			<li class="nav-item"><a class="nav-link" href="#self-signed-certificate">Generate Self-Signed Certificate</a></li>
 			<li class="nav-item"><a class="nav-link" href="#import-to-keystore">Import PKCS12 file to keystore</a></li>
 			<li class="nav-item"><a class="nav-link" href="#idocs_footer">Footer</a></li>
@@ -148,14 +152,14 @@
 				</ul>
 			</div>
 		</div>
-        <p class="alert alert-info">If you have any questions that are beyond the scope of this help file, Please feel free to email at <a target="_blank" href="#">yogi@colrows.com</a>.</p>
+        <p class="alert alert-info">If you have any questions that are beyond the scope of this help file, Please feel free to email at <a target="_blank" href="#">dev@colrows.com</a>.</p>
         </section>
         
 		<hr class="divider">
 		
         <!-- Installation
 		============================ -->
-        <section id="idocs_installation">
+        <section id="installation">
           <h2>Installation</h2>
           <p class="lead">Follow the steps below to setup your colrows:</p>
           <ol>
@@ -171,7 +175,104 @@
         
 		<hr class="divider">
 
-		
+				<!-- Docker Installation
+		============================ -->
+    <section id="docker_installation">
+      <h2>Docker Installation</h2>
+      <p class="lead mb-5">Colrows provide exclusive support docker, in case you dont have docker installed, please use the <a href="https://docs.docker.com/engine/install/">Docker Installation Guide</a></p>
+        <ol>
+          <li>use given command to pull latest colrows image : <code>docker pull colrows/colrows:latest</code></li>
+          <li>use given command to run recently pulled colrows image : <code>docker container run -it -d –name colrows-contaner -p 80:80 colrows/colrows:latest</code></li>
+          <li>open any browser and go to <a href="http://localhost:80/login">http://localhost:80/login</a></li>
+        </ol>
+
+    </section>
+		<hr class="divider">
+
+    		<!-- AWS Cloud Installation
+		============================ -->
+    <section id="aws_installation">
+      <h2>AWS Cloud Installation</h2>
+      <p class="lead mb-5">To kick start your colrows experience on Amazon Web Services Cloud follow the below given steps:</p>
+        <ol>
+          <li>go to <a href="https://aws.amazon.com/console/">AWS portal</a> and login with your AWS Credentials</li>
+          <li>in top search bar type  <span class="text-info">cloud formation</span> and select <span class="text-info">CloudFormation</span> option
+            <p><a class="popup-img" href="assets/cloud/aws/service.png"><img class="img-fluid border" src="assets/cloud/aws/service.png" alt=""></a></p>
+          </li>
+
+          <li>On CloudFormation portal, click on <span class="text-info">Stacks</span> from left hand side menu option and select <span class="text-info">Create Stack</span>
+            <p><a class="popup-img" href="assets/cloud/aws/create_stack.png"><img class="img-fluid border" src="assets/cloud/aws/create_stack.png" alt=""></a></p>
+          </li>
+          <li> Enter the details on <span class="text-info">Create Stack</span> page
+            <ul>
+            <li>From Prerequisit - Prepare Template select  <span class="text-info">Template is ready </span></li>
+            <li>From Specify template select  <span class="text-info">Upload a tempalte file </span></li>
+            <li>Click on  <span class="text-info">Choose file </span> and upload  <code>aws-cloud-formation-template.yaml </code> (you must have get it with your colrows subscription)</li>
+            <li>Click Next</li>
+          </ul>
+            <p><a class="popup-img" href="assets/cloud/aws/upload_template.png"><img class="img-fluid border" src="assets/cloud/aws/upload_template.png" alt=""></a></p>
+          </li>
+          <li>Enter the details on <span class="text-info">Specify stack details</span> page
+            <ul>
+              <li>In Stack name provide the name of the stack</li>
+              <li>In AWSKey section select <span class="text-info">Amaxon EC2 Key Pair</span>; in case you dont have one, create it from EC2 service -> Network & Security -> Key Pairs</li>
+              <li>Click Next</li>
+            </ul>
+            <p><a class="popup-img" href="assets/cloud/aws/stack_details.png"><img class="img-fluid border" src="assets/cloud/aws/stack_details.png" alt=""></a></p>
+          </li>
+          <li>on Configure stack option, configure all option as per your need (you can ignore this in basic setup), and click Next</li>
+          <li>on Review window, review all the configuration and click on Create, it will build the complete stack of required components for you</li>
+          <li>once stack creation completed, look for public IP of your Virtual Machine and access http://&lt;your-public-ip&gt;:80/login</li>
+          <li>your colrows setup is completed, and you are good explore.</li>
+        </ol>
+
+    </section>
+		<hr class="divider">
+    
+    		<!-- Azure Cloud Installation
+		============================ -->
+    <section id="azure_installation">
+      
+      <h2>Microsoft Azure Installation</h2>      
+      <p>To kick start your colrows experience on Microsoft Azure Cloud follow the below given steps:</p>
+        <ol>
+          <li>go to Azure template service : <a href="https://portal.azure.com/#create/Microsoft.Template">https://portal.azure.com/#create/Microsoft.Template</a> and select <span class="text-info">Build your own template in the editor</span> option
+            <p><a class="popup-img" href="assets/cloud/azure/custom_deployment.png"><img class="img-fluid border" src="assets/cloud/azure/custom_deployment.png" alt=""></a></p>
+          </li>
+
+          <li>Click on <span class="text-info">Load file</span> and upload <code>azure-resource-manager-template.yaml </code> (you must have get it with your colrows subscription)
+            <p><a class="popup-img" href="assets/cloud/azure/edit_template.png"><img class="img-fluid border" src="assets/cloud/azure/edit_template.png" alt=""></a></p>
+          </li>
+          <li>it will create all required resources including Network Security Group, Public IP Address, Virtual Network, Virtual Machine, etc; click <span class="text-info">save </span>to proceed
+            <p><a class="popup-img" href="assets/cloud/azure/resources.png"><img class="img-fluid border" src="assets/cloud/azure/resources.png" alt=""></a></p>
+          </li>
+          <li>Provide all the required details to create resource dynamically</a>
+            <p><a class="popup-img" href="assets/cloud/azure/properties.png"><img class="img-fluid border" src="assets/cloud/azure/properties.png" alt=""></a></p>
+          </li>
+          <li>once all resources created, look for public IP of the VM created, goto http://&lt;your-public-ip&gt;:80/login</li>
+          <li>your colrows setup is completed, and you are good explore.</li>
+        </ol>
+
+    </section>
+		<hr class="divider">
+    
+    		<!-- Google Cloud Installation
+		============================ -->
+    <section id="google_installation">
+      <h2>Google Cloud Installation</h2>
+      <p class="lead mb-5">Unlike AWS and Azure cloud, Google doesnt provide UI based approach to create resource dynamically using templates. we will use gcloud CLI instead</p>
+        <ol>
+          <li>install Google Cloud CLI refer : <a href="https://cloud.google.com/sdk/docs/install">Google cloud CLI install Guide</a></li>
+          <li>Initialize and Authenticate google cloud CLI; and create new project using <code>gcloud init</code> refer : <a href="https://cloud.google.com/sdk/docs/initializing">Configure Google cloud CLI</a></li>
+          <li>Enable HTTP and HTTPS traffic for the newly created project using command : <br/><code>gcloud compute firewall-rules create http-allow --allow tcp:80,tcp:443</code></li>
+          <li>Create new deployment using tempalte <code>google-deployment-manager-template.yaml</code> (you must have get it with your colrows subscription)</li>
+          <li>command to create deployment using template : <br/><code>gcloud deployment-manager deployments create colrows --config google-deployment-manager-template.yaml</code></li>
+          <li>once deployment is successful, look for public IP of your deployment and goto http://&lt;your-public-ip&gt;:80/login</li>
+          <li>your colrows setup is completed, and you are good explore.</li>
+        </ol>
+
+    </section>
+		<hr class="divider">
 		<!-- Confguration
 		============================ -->
         <section id="configuration">
@@ -308,7 +409,7 @@
             <li>Re-type the password.</li>
             <li>Enter the password you have defined before for the PKCS12 file (colrows).</li>
           </ol>
-          <p class="lead">Now we have created a new keystore and imported our PKCS12 file. The same keystore we will refer to enable SSL/HTTPS in <a href="#ssl">SSL Support</a> Section</p>
+          <p class="lead">Now we have created a new keystore and imported our PKCS12 file. The same keystore we will refer to enable SSL/HTTPS in <a href="#ssl">HTTPS Configuration</a> Section</p>
 
         </section>
 		
