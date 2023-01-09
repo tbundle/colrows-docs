@@ -191,6 +191,7 @@
       <p class="lead mb-5">To kick start your colrows experience on Amazon Web Services Cloud follow the below given steps:</p>
         <ol>
           <li>go to <a href="https://aws.amazon.com/console/">AWS portal</a> and login with your AWS Credentials</li>
+          <li>switch your availability zone to N. Virginia</li>
           <li>in top search bar type  <span class="text-info">cloud formation</span> and select <span class="text-info">CloudFormation</span> option
             <p><a class="popup-img" href="assets/cloud/aws/service.png"><img class="img-fluid border" src="assets/cloud/aws/service.png" alt=""></a></p>
           </li>
@@ -210,6 +211,8 @@
           <li>Enter the details on <span class="text-info">Specify stack details</span> page
             <ul>
               <li>In Stack name provide the name of the stack</li>
+              <li>Select availability Zone</li>
+              <li>In Instance type select your preferred instance type, <span class="text-info">t2.micro</span> is sufficient for exploring colrows</li>
               <li>In AWSKey section select <span class="text-info">Amaxon EC2 Key Pair</span>; in case you dont have one, create it from EC2 service -> Network & Security -> Key Pairs</li>
               <li>Click Next</li>
             </ul>
@@ -217,7 +220,16 @@
           </li>
           <li>on Configure stack option, configure all option as per your need (you can ignore this in basic setup), and click Next</li>
           <li>on Review window, review all the configuration and click on Create, it will build the complete stack of required components for you</li>
-          <li>once stack creation completed, look for public IP of your Virtual Machine and access http://&lt;your-public-ip&gt;:80/login</li>
+          <li>to observe resources created by template navigate to resources tag
+            <p><a class="popup-img" href="assets/cloud/aws/stack_resources.png"><img class="img-fluid border" src="assets/cloud/aws/stack_resources.png" alt=""></a></p>
+          </li>
+          <li>once stack creation completed, assure EC2 instance created and its health check is completed. (colrows would have approx 5 min to install post EC2 instance is ready)
+            <p><a class="popup-img" href="assets/cloud/aws/EC2_health.png"><img class="img-fluid border" src="assets/cloud/aws/EC2_health.png" alt=""></a></p>
+          </li>
+          <li>click on EC2 instance ID to goto EC2 instance propertues section
+            <p><a class="popup-img" href="assets/cloud/aws/EC2_properties.png"><img class="img-fluid border" src="assets/cloud/aws/EC2_properties.png" alt=""></a></p>
+          </li>
+          <li>observe public IP of your EC2 instance and access http://&lt;your-public-ip&gt;:80/login</li>
           <li>your colrows setup is completed, and you are good explore.</li>
         </ol>
 
