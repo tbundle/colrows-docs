@@ -2308,7 +2308,7 @@ hr {
   color: #252b33;
   margin-left: 260px;
   padding: 66px 0px;
-  padding: 4.125rem 0;
+  padding: 1.125rem 0;
 }
 #footer .nav .nav-item {
   display: inline-block;
@@ -2321,7 +2321,7 @@ hr {
   transition: all 0.2s ease;
 }
 #footer .nav .nav-item .nav-link:focus {
-  color: #0366d6;
+  color: #303d4f;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
