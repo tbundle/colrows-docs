@@ -243,7 +243,7 @@
           <li>it will create all required resources including Network Security Group, Public IP Address, Virtual Network, Virtual Machine, etc; click <span class="text-info">save </span>to proceed
             <p><a class="popup-img" href="assets/cloud/azure/resources.png"><img class="img-fluid border" src="assets/cloud/azure/resources.png" alt=""></a></p>
           </li>
-          <li>Provide all the required details to create resource dynamically</a>
+          <li>Provide all the required details to create resource dynamically
             <p><a class="popup-img" href="assets/cloud/azure/properties.png"><img class="img-fluid border" src="assets/cloud/azure/properties.png" alt=""></a></p>
           </li>
           <li>once all resources created, look for public IP of the VM created, goto http://&lt;your-public-ip&gt;:80/login</li>
@@ -264,7 +264,13 @@
           <li>Enable HTTP and HTTPS traffic for the newly created project using command : <br/><code>gcloud compute firewall-rules create http-allow --allow tcp:80,tcp:443</code></li>
           <li>Create new deployment using tempalte <code>google-deployment-manager-template.yaml</code> (you must have get it with your colrows subscription)</li>
           <li>command to create deployment using template : <br/><code>gcloud deployment-manager deployments create colrows --config google-deployment-manager-template.yaml</code></li>
-          <li>once deployment is successful, look for public IP of your deployment and goto http://&lt;your-public-ip&gt;:80/login</li>
+          <li>monitor resource created by the template, goto "<a href="https://console.cloud.google.com/project/_/deployments">Deployment Manager</a>" and assure deployment creation compelted succesfully. 
+            <p><a class="popup-img" href="assets/cloud/google/deployment.png"><img class="img-fluid border" src="assets/cloud/google/deployment.png" alt=""></a></p>
+          </li>
+          <li>once deployment is successful, look for public IP of your VM created by Deployment and goto http://&lt;your-public-ip&gt;:80/login
+            <p><a class="popup-img" href="assets/cloud/google/vm.png"><img class="img-fluid border" src="assets/cloud/google/vm.png" alt=""></a></p>
+          </li>
+          <li>it may take 5 min to colrows available on public IP, as colrows will perform initial setup in background for first time</li>
           <li>your colrows setup is completed, and you are good explore.</li>
         </ol>
 
